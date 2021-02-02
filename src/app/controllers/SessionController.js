@@ -18,7 +18,7 @@ class SessionController {
 
     const { email, password } = req.body;
 
-    const user = await User.findByPk(1);
+    const user = await User.findOne({ where: { email } });
     if (!user) {
       return res
         .status(StatusCodes.UNAUTHORIZED)
